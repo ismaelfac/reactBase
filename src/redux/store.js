@@ -1,7 +1,7 @@
 import { createStore, combineReducers } from 'redux';
-import home from './reducers/home';
-import dashboard from './reducers/dashboard';
-import profile from './reducers/profile';
+import home from './reducers/pages/home';
+import dashboard from './reducers/pages/dashboard';
+import profile from './reducers/modules/profile';
 const reducer = combineReducers({
     home,
     dashboard,
