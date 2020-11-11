@@ -1,13 +1,15 @@
-const defaultState = {
-    id: 1,
-    name: 'XYZ s.a',
-    options: [
-        {
-            id: 1,
-            name: 'notifications'
-        }
-    ]
-};
+const defaultState = [
+    {
+        id: 1,
+        name: 'Inicio',
+        link: 'home'
+    },
+    {
+        id: 2,
+        name: 'Perfil',
+        link: 'profile'
+    }
+];
 
 function reducer(state = defaultState, {type, payload}){
 switch (type) {

@@ -1,5 +1,6 @@
-import { CssBaseline } from '@material-ui/core';
 import React, { Fragment } from 'react';
+import { Link, Redirect, withRouter } from 'react-router-dom';
+import { CssBaseline } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -21,22 +22,32 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Page(props){
+    const { history } = props;
     const classes = useStyles();
     const isEmpty = props.navBar.length === 0;
+    const resultsOptions = props.navBar.options;
+    const IconStart = props.navBar.iconStart;
     return (
         <Fragment>
             <CssBaseline />
             <div className={classes.root}>
                 <AppBar position="static">
                     <Toolbar>
-                        <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-                        <MenuIcon />
-                        </IconButton>
+                        {IconStart && 
+                          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+                          <MenuIcon />
+                          </IconButton>
+                        }
                         <Typography variant="h6" className={classes.title}>
                             {isEmpty ? 'Base' : props.navBar.name }
                         </Typography>
-                        
-                        <Button color="inherit">Login</Button>
+                        {isEmpty ?
+                          <Button color="inherit">Login</Button>
+                        :
+                          resultsOptions.map(item => 
+                            <Button color="inherit" to={item.link}>{item.name}</Button>
+                          )
+                        }
                     </Toolbar>
                 </AppBar>
             </div>
