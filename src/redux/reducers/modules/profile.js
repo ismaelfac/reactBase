@@ -1,7 +1,13 @@
 const defaultState = {
         id: 1,
         fullName: 'Ismael Enrique Lastre Alvarez',
-        role: 'SuperAdmin'
+        role: 'SuperAdmin',
+        modules: [
+            {
+                id: 1,
+                name: 'profile'
+            }
+        ]
 };
 
 function reducer(state = defaultState, {type, payload}){
@@ -12,6 +18,9 @@ function reducer(state = defaultState, {type, payload}){
                     fullName: 'Pepito Perez',
                     role: 'Administrador'
             };
+        }
+        case 'editProfile': {
+            return 'Profile editado con exito';
         }
         default:
             return state;
