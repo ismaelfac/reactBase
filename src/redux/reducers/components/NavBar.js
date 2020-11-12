@@ -38,7 +38,7 @@ const defaultState = {
             link: 'blog'
         }
     ],
-    iconStart: false
+    iconStart: true
 };
 
 function reducer(state = defaultState, {type, payload}){

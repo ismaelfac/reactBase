@@ -5,14 +5,16 @@ import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import store from './redux/store';
 //---- Pages -----//
 import Home from './page/Home';
-import Dashboard from './page/Dashboard';
+import About from './page/About';
+import DashboardBase from './page/Dashboard';
 
 const Root = (
     <Provider store={store}>
         <BrowserRouter>
             <Switch>
                 <Route path="/home" component={Home} />
-                <Route path="/dashboard" component={Dashboard} />
+                <Route path="/about" component={About} />
+                <Route path="/dashboard" component={DashboardBase} />
                 <Redirect from="/" to="/home" />
             </Switch>
         </BrowserRouter>
